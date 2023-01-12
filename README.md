@@ -1,7 +1,5 @@
 # DUMN: Interactive Graph Generator 
 
-**Please grade this commit: c466e134859a0a5fc7f197e17d996bfbcfe73d21**
-
 Demo: [https://dumn.herokuapp.com](https://dumn.herokuapp.com)
 
 Documentation: [https://dumn.herokuapp.com/pages/docs/index.html](https://dumn.herokuapp.com/pages/docs/index.html)
