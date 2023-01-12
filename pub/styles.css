@@ -1,0 +1,29 @@
+body {
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    line-height: 1.5em;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px black solid;
+    margin-bottom: 10px;
+}
+
+.imgContainer {
+    text-align: center;
+}
+
+button{
+    height: 40px;
+    width: 80px;
+    font-size: 15pt;
+}
+
+.buttonContainer{
+    text-align: center;
+}

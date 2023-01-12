@@ -1,21 +1,19 @@
 # DUMN: Interactive Graph Generator 
 
-**Please grade this commit: c466e134859a0a5fc7f197e17d996bfbcfe73d21**
 
 Demo: [https://dumn.herokuapp.com](https://dumn.herokuapp.com)
 
-Documentation: [https://dumn.herokuapp.com/pages/docs/index.html](https://dumn.herokuapp.com/pages/docs/index.html)
-
-
 ## Getting Started
 
-### API Usage
+### Installation 
 
 To use the API, add the following to your HTML header:
 
 ```{html}
 <script defer type="text/javascript" src="https://dumn.herokuapp.com/dumn.js"></script>
 ```
+
+### Usage
 
 To use the API, you need to create a `canvas` element with a unique ID. You will be generating all the graphs on your own canvas element.
 
@@ -39,6 +37,8 @@ options = {"networkSize": 10, "nodeSize": 50, "canvasId": "myCanvas", "color": "
 nnGenerator(options)
 ```
 
+### Adding Edges
+
 To add edges to the graph, 
 * `edges`: the edges within the graph. For example, to include edges (1, 3) and (2, 3), the edges will be
 ```{javascript}
@@ -52,8 +52,13 @@ where `v1` and `v2` are the labels of nodes (see [demo](https://dumn.herokuapp.c
 
 In your own canvas，you will be able to drag the nodes around using mouse (see [demo](https://dumn.herokuapp.com/pages/demo/demo.html) for an interactive use). Additionally, the generated graph can be directly saved as an image file.
 
+### Sample Usage
 
-## Running Demo Locally
+Here is an example of the generated graph using the example from above:
+
+![Sample Usage](example1.png)
+
+### Running Demo Locally
 
 To run demo locally, run the following commands:
 
@@ -62,7 +67,7 @@ $ npm install
 $ node server.js
 ```
 
-## Project layout
+### Project layout
 
     dumn-docs/    # The documentations.
     pub/

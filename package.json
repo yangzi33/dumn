@@ -1,0 +1,24 @@
+{
+  "name": "js-library-yangzi33",
+  "version": "1.0.0",
+  "description": "individual project",
+  "main": "dumn.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-winter-2022/js-library-yangzi33.git"
+  },
+  "author": "Ziyue Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-winter-2022/js-library-yangzi33/issues"
+  },
+  "homepage": "https://github.com/csc309-winter-2022/js-library-yangzi33#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "jquery": "^3.6.0"
+  }
+}

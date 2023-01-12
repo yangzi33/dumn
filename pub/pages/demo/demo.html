@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./styles.css">
+    <!-- ================================== -->
+    <!-- <script src="dumn.js"></script> -->
+    <script defer type="text/javascript" src="./../../dumn.js"></script>
+    <script defer type="text/javascript" src="./demo.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <title>DUMN: Interactive Graph Generator</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="mainHeading">DUMN: Interactive Graph Generator</h1>
+    </header>
+
+    <!-- <canvas id="nnContainer"> -->
+    <canvas id="nnContainer" width="1000" height="500">
+    </canvas>
+
+    <div class="inputContainer">
+        <input id="networkSizeInput" placeholder="Network Size">
+        <!-- <input id="nodeSizeInput" placeholder="Node Size"> -->
+        <input id="nodeColorInput" placeholder="Node Color (Black by Default)">
+        <div class="slidecontainer">
+            <input type="range" min="20" max="60" value="40" class="slider" id="nodeSizeInput">
+            <p id="nodeSizeP">Node size: 40</p>
+        </div>
+        <button id="generateButton">Generate Graph</button>
+        <p id="caution"></p>
+    </div>
+    <div class="inputContainer">
+        <input id="e1" placeholder="Node 1 Number">
+        <input id="e2" placeholder="Node 2 Number">
+        <!-- <button id="addNodeButton">Add Node</button> -->
+        <button id="addEdgeButton">Add Edge</button>
+        <button id="removeEdgeButton">Remove Edge</button>
+    </div>
+</body>
+
+</html>

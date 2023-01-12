@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://dumn.herokuapp.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>DUMN Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">DUMN Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">DUMN: Interactive Graph Generator</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="API/" class="nav-link">API Docs</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="API/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#dumn-interactive-graph-generator" class="nav-link">DUMN: Interactive Graph Generator</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#api" class="nav-link">API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#options" class="nav-link">Options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#events" class="nav-link">Events</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#methods" class="nav-link">Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="dumn-interactive-graph-generator">DUMN: Interactive Graph Generator</h1>
+<p>Demo: <a href="https://dumn.herokuapp.com">https://dumn.herokuapp.com</a></p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<p>To use the API, add the following to your HTML header:</p>
+<pre><code>&lt;script defer type=&quot;text/javascript&quot; src=&quot;https://dumn.herokuapp.com/dumn.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="usage">Usage</h3>
+<p>To use the API, you need to create a <code>canvas</code> element with a unique ID. You will be generating all the graphs on your own canvas element.</p>
+<p>An example:</p>
+<pre><code>&lt;canvas id=&quot;myCanvas&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<p>In your script file, you can pass the following options to the API and generate a graph:</p>
+<ul>
+<li><code>networkSize</code>: size of the graph you want to generate. Here the size refers to the number of nodes.</li>
+<li><code>nodeSize</code>: size of each node within your graph.</li>
+<li><code>canvasId</code>: id of the <code>canvas</code> element. In the example above, the id is <code>myCanvas</code>.</li>
+<li><code>color</code>: the graph will be generated in this color. The color can be either names (e.g. <code>black</code>, <code>red</code>) or HEX code (e.g. <code>#F0F0F0</code>). If you enter an invalid color or not entering color at all, the graph will be generated in black by default.</li>
+</ul>
+<p>After the options are all set, generate the graph by calling <code>nnGenerator(options)</code>. An example usage:</p>
+<pre><code>// An example option
+options = {&quot;networkSize&quot;: 10, &quot;nodeSize&quot;: 50, &quot;canvasId&quot;: &quot;myCanvas&quot;, &quot;color&quot;: &quot;black&quot;}
+nnGenerator(options)
+</code></pre>
+<h3 id="adding-edges">Adding Edges</h3>
+<p>To add edges to the graph, 
+* <code>edges</code>: the edges within the graph. For example, to include edges (1, 3) and (2, 3), the edges will be</p>
+<pre><code>edges = [
+    { v1: 1, v2: 3 },
+    { v1: 2, v2: 3 }
+]
+</code></pre>
+<p>where <code>v1</code> and <code>v2</code> are the labels of nodes (see <a href="https://dumn.herokuapp.com/pages/demo/demo.html">demo</a> for example of node labelling).</p>
+<p>In your own canvas，you will be able to drag the nodes around using mouse (see <a href="https://dumn.herokuapp.com/pages/demo/demo.html">demo</a> for an interactive use). Additionally, the generated graph can be directly saved as an image file.</p>
+<h3 id="sample-usage">Sample Usage</h3>
+<p>Here is an example of the generated graph using the example from above:</p>
+<p><img alt="Sample Usage" src="example1.png" /></p>
+<h3 id="running-demo-locally">Running Demo Locally</h3>
+<p>To run demo locally, run the following commands:</p>
+<pre><code>$ npm install
+$ node server.js
+</code></pre>
+<h3 id="project-layout">Project layout</h3>
+<pre><code>dumn-docs/    # The documentations.
+pub/
+    pages/
+        ...   # The demo files
+dumn.js       # The main API
+package.json  # Dependencies
+...           # Other files
+</code></pre>
+<h1 id="api">API</h1>
+<h2 id="options">Options</h2>
+<p>options to initialize a <code>nnGenerator</code> Object </p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>networkSize</td>
+<td>Integer</td>
+<td>The number of nodes in graph, i.e. the size of generated graph.</td>
+</tr>
+<tr>
+<td>nodeSize</td>
+<td>Integer</td>
+<td>Size of the nodes in graph.</td>
+</tr>
+<tr>
+<td>canvasId</td>
+<td>String</td>
+<td>Element id of canvas used to generate graph.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>Color of nodes. Has to be property of CSS (HEX code or color name).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events</h2>
+<ul>
+<li>After user generates a graph, user can drag the nodes to any position within the canvas.</li>
+<li>User may add edges between graph nodes by enterring node labels. Note: looping (a node connecting itself) is not supported.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p>Methods to control a <code>nnGenerator</code> object</p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addNode</td>
+<td>None</td>
+<td>Increase the size of the graph by adding one node.</td>
+</tr>
+<tr>
+<td>addEdge</td>
+<td>Object{v1: integer, v2: integer}</td>
+<td>Connects nodes v1 and v2 with an edge.</td>
+</tr>
+<tr>
+<td>removeEdge</td>
+<td>Object{v1: integer, v2: integer}</td>
+<td>Remove edge connecting v1 and v2.</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>None</td>
+<td>Draw the generated graph on canvas.</td>
+</tr>
+<tr>
+<td>select</td>
+<td>x: float, y: float</td>
+<td>Point object at position (x, y) by pointer <code>selected</code>.</td>
+</tr>
+<tr>
+<td>dragUp</td>
+<td>Event</td>
+<td>Handles mouse button release.</td>
+</tr>
+<tr>
+<td>dragOut</td>
+<td>Event</td>
+<td>Handles mouse leaving canvas.</td>
+</tr>
+<tr>
+<td>dragMove</td>
+<td>Event</td>
+<td>Handles mouse dragging within canvas.</td>
+</tr>
+<tr>
+<td>dragDown</td>
+<td>Event</td>
+<td>Handles mouse clicking canvas.</td>
+</tr>
+<tr>
+<td>setDrag</td>
+<td>None</td>
+<td>Handles all mouse events (dragUp, dragOut, dragMove, dragDown).</td>
+</tr>
+<tr>
+<td>getRandomCoor</td>
+<td>max: Integer</td>
+<td>Generates a random float from range (0, max). Used to generate nodes at random positions.</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2022-04-20 12:54:38.920612+00:00
+-->
